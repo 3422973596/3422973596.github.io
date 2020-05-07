@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://3422973596.github.io/"/>
-  <updated>2020-05-07T05:31:34.853Z</updated>
+  <updated>2020-05-07T07:23:27.358Z</updated>
   <id>https://3422973596.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hexo常用命令集合</title>
+    <link href="https://3422973596.github.io/2020/05/07/hexo-chang-yong-ming-ling-ji-he/"/>
+    <id>https://3422973596.github.io/2020/05/07/hexo-chang-yong-ming-ling-ji-he/</id>
+    <published>2020-05-07T06:26:47.000Z</published>
+    <updated>2020-05-07T07:23:27.358Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;常用hexo命令集合&quot;&gt;&lt;a href=&quot;#常用hexo命令集合&quot; class=&quot;headerlink&quot; title=&quot;常用hexo命令集合&quot;&gt;&lt;/a&gt;常用hexo命令集合&lt;/h1&gt;&lt;h2 id=&quot;指令说明&quot;&gt;&lt;a href=&quot;#指令说明&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="https://3422973596.github.io/categories/hexo/"/>
+    
+    
+      <category term="hexo" scheme="https://3422973596.github.io/tags/hexo/"/>
+    
+      <category term="blog" scheme="https://3422973596.github.io/tags/blog/"/>
+    
+  </entry>
   
   <entry>
     <title>vs编译器美化</title>
