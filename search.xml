@@ -4,11 +4,38 @@
   
     
     <entry>
+      <title>列车调度问题</title>
+      <link href="/2020/05/07/lie-che-diao-du-wen-ti/"/>
+      <url>/2020/05/07/lie-che-diao-du-wen-ti/</url>
+      
+        <content type="html"><![CDATA[<h1 id=""><a href="#" class="headerlink" title=""></a></h1><h1 id="列车调度"><a href="#列车调度" class="headerlink" title="列车调度"></a>列车调度</h1><p>火车站的铁轨的结构如下图所示。</p><p><img src="https://images.ptausercontent.com/188" alt=""></p><p>两端分别是一条入口（Entrance）轨道和一条出口（Exit）轨道，它们之间有N条平行的轨道。每趟列车从入口可以选择任意一条轨道进入，最后从出口离开。在图中有9趟列车，在入口处按照{8，4，2，5，3，9，1，6，7}的顺序排队等待进入。如果要求它们必须按序号递减的顺序从出口离开，则至少需要多少条平行铁轨用于调度？</p><p>输入格式：<br> 输入第一行给出一个整数N (2 ≤ N ≤10的5次方),下一行给出从1到N的整数序号的一个重排列。数字间以空格分隔。</p><p> 输出格式：<br> 在一行中输出可以将输入的列车按序号递减的顺序调离所需要的最少的铁轨条数。</p><p>输入样例：</p><pre><code>98 4 2 5 3 9 1 6 7</code></pre><p>输出样例：</p><pre><code>4</code></pre><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><ul><li><p>这个题目就是看能够产生多少个对列,这些队列都是由大到小排列<br>比如说这个例子 4&lt;8 所以应为84在同一轨道，2&lt;4所以是842在同一轨道<br>，为了方便,把这份轨道命名为1轨道</p></li><li><p>5&gt;2所以5又在一个新的轨道同理这个轨道有5 3，为了方便,把这份轨道命名为2轨道</p></li><li><p>同理下一轨道有9,为了方便,把这份轨道命名为3轨道</p></li><li><p>注意这里的1因去找3个轨道最小的那么他应该在1轨道</p></li><li><p>同理去处理6 7</p></li><li><p>得到如下4个轨道：</p></li><li><p>1轨道：8421</p></li><li><p>2轨道：53</p></li><li><p>3轨道：96</p></li><li><p>4轨道：7</p></li><li><p>由于我们只需知道一个轨道的末尾元素，即可做出判断,插入新元素的时候我们需不需要在增加一个轨道，因此我们选择用set插入元素，如果我们插入的元素在已有的轨道，那么我们区删除离它最近的元素(即我们同一轨道只留最小的那个值),执行完毕之后set这个集合的元素为每一轨道的最小值，我们再去求它的size就可以知道我们需要几个轨道了  </p><h2 id="参考代码"><a href="#参考代码" class="headerlink" title="参考代码"></a>参考代码</h2><pre><code>#include&lt;iostream&gt;#include&lt;set&gt;using namespace std;int main() {  set&lt;int&gt; s;  int n, t;  cin &gt;&gt; n &gt;&gt; t;  s.insert(t);  for (int i = 2; i &lt;= n; i++) {      cin &gt;&gt; t;      if (t &lt; *s.rbegin()) {          s.erase(s.upper_bound(t));      }      s.insert(t);  }  cout &lt;&lt; s.size();}</code></pre></li></ul><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> c++ </tag>
+            
+            <tag> 算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>hexo常用命令集合</title>
       <link href="/2020/05/07/hexo-chang-yong-ming-ling-ji-he/"/>
       <url>/2020/05/07/hexo-chang-yong-ming-ling-ji-he/</url>
       
-        <content type="html"><![CDATA[<h1 id="常用hexo命令集合"><a href="#常用hexo命令集合" class="headerlink" title="常用hexo命令集合"></a>常用hexo命令集合</h1><h2 id="指令说明"><a href="#指令说明" class="headerlink" title="指令说明"></a>指令说明</h2><ul><li><code>hexo server</code>#启动本地服务器，用于预览主题。Hexo 会监视文件变动并自动更新，除修改站点配置文件外,无须重启服务器,直接刷新网页即可生效。</li><li><code>hexo server -s</code> #以静态模式启动</li><li><code>hexo server -p 5000</code> #更改访问端口   (默认端口为4000，’ctrl + c’关闭server)</li><li><code>hexo server -i</code>IP地址 #自定义 IP</li><li><code>hexo clean</code>#清除缓存  ,网页正常情况下可以忽略此条命令,执行该指令后,会删掉站点根目录下的public文件夹</li><li><code>hexo g</code> #生成静态网页  (执行 $ hexo g后会在站点根目录下生成public文件夹, hexo会将”/blog/source/“   下面的.md后缀的文件编译为.html后缀的文件,存放在”/blog/public/ “   路径下)</li><li><code>hexo d</code> #自动生成网站静态文件，并将本地数据部署到设定的仓库(如github)</li><li><code>hexo init</code> 文件夹名称 #初始化XX文件夹名称</li><li><code>npm update hexo -g</code>#升级</li><li><code>npm install hexo -g</code> #安装</li><li><code>node-v</code>          #查看node.js版本号</li><li><code>npm -v</code>        #查看npm版本号</li><li><code>git --version</code>  #查看git版本号</li><li><code>hexo -v</code>      #查看hexo版本号<h2 id="简写指令"><a href="#简写指令" class="headerlink" title="简写指令"></a>简写指令</h2></li><li><code>hexo n "我的第一篇文章"</code> 等价于  <code>hexo new "我的第一篇文章"</code> 还等价于 <code>hexo new post "我的第一篇文章"</code></li><li><code>hexo p</code>等价于<code>hexo publish</code></li><li><code>hexo g</code>等价于<code>hexo generate</code></li><li><code>hexo s</code>等价于<code>hexo server</code></li><li><code>hexo d</code>等价于<code>hexo deploy</code></li><li><code>hexo g -d</code>等价于<code>hexo generate --deploy</code></li><li>注: <code>hexo clean</code> 没有简写,  <code>git --version</code> 没有简写  <h1 id="这里是测试区"><a href="#这里是测试区" class="headerlink" title="这里是测试区"></a>这里是测试区</h1></li></ul><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+        <content type="html"><![CDATA[<h1 id="常用hexo命令集合"><a href="#常用hexo命令集合" class="headerlink" title="常用hexo命令集合"></a>常用hexo命令集合</h1><h2 id="指令说明"><a href="#指令说明" class="headerlink" title="指令说明"></a>指令说明</h2><ul><li><code>hexo server</code>#启动本地服务器，用于预览主题。Hexo 会监视文件变动并自动更新，除修改站点配置文件外,无须重启服务器,直接刷新网页即可生效。</li><li><code>hexo server -s</code> #以静态模式启动</li><li><code>hexo server -p 5000</code> #更改访问端口   (默认端口为4000，’ctrl + c’关闭server)</li><li><code>hexo server -i</code>IP地址 #自定义 IP</li><li><code>hexo clean</code>#清除缓存  ,网页正常情况下可以忽略此条命令,执行该指令后,会删掉站点根目录下的public文件夹</li><li><code>hexo g</code> #生成静态网页  (执行 $ hexo g后会在站点根目录下生成public文件夹, hexo会将”/blog/source/“   下面的.md后缀的文件编译为.html后缀的文件,存放在”/blog/public/ “   路径下)</li><li><code>hexo d</code> #自动生成网站静态文件，并将本地数据部署到设定的仓库(如github)</li><li><code>hexo init</code> 文件夹名称 #初始化XX文件夹名称</li><li><code>npm update hexo -g</code>#升级</li><li><code>npm install hexo -g</code> #安装</li><li><code>node-v</code>          #查看node.js版本号</li><li><code>npm -v</code>        #查看npm版本号</li><li><code>git --version</code>  #查看git版本号</li><li><code>hexo -v</code>      #查看hexo版本号<h2 id="简写指令"><a href="#简写指令" class="headerlink" title="简写指令"></a>简写指令</h2></li><li><code>hexo n "我的第一篇文章"</code> 等价于  <code>hexo new "我的第一篇文章"</code> 还等价于 <code>hexo new post "我的第一篇文章"</code></li><li><code>hexo p</code>等价于<code>hexo publish</code></li><li><code>hexo g</code>等价于<code>hexo generate</code></li><li><code>hexo s</code>等价于<code>hexo server</code></li><li><code>hexo d</code>等价于<code>hexo deploy</code></li><li><code>hexo g -d</code>等价于<code>hexo generate --deploy</code></li><li>注: <code>hexo clean</code> 没有简写,  <code>git --version</code> 没有简写  </li></ul><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       
       
       <categories>
