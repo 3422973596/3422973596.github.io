@@ -482,8 +482,12 @@
             <div id="articleContent">
                 <h1 id="如何在hexo上发布第一张博客"><a href="#如何在hexo上发布第一张博客" class="headerlink" title="如何在hexo上发布第一张博客"></a>如何在hexo上发布第一张博客</h1><h2 id="所用到的工具："><a href="#所用到的工具：" class="headerlink" title="所用到的工具："></a>所用到的工具：</h2><ul>
 <li>markdown：Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。<br>Markdown 语言在 2004 由约翰·格鲁伯（英语：John Gruber）创建。<br>Markdown 编写的文档可以导出 HTML 、Word、图像、PDF、Epub 等多种格式的文档。<br>Markdown 编写的文档后缀为 .md, .markdown。</li>
-<li>vscode:一种轻量级的代码编辑器<h2 id="需要了解的知识"><a href="#需要了解的知识" class="headerlink" title="需要了解的知识"></a>需要了解的知识</h2><h3 id="markdown语法"><a href="#markdown语法" class="headerlink" title="markdown语法"></a>markdown语法</h3></li>
-<li>参见<a href="https://www.runoob.com/markdown/md-tutorial.html" target="_blank" rel="noopener">菜鸟教程</a><h3 id="文章Front-matter介绍-markdown开头的部分"><a href="#文章Front-matter介绍-markdown开头的部分" class="headerlink" title="文章Front-matter介绍(markdown开头的部分)"></a>文章Front-matter介绍(markdown开头的部分)</h3><table>
+<li>vscode:一种轻量级的代码编辑器  </li>
+</ul>
+<h2 id="需要了解的知识"><a href="#需要了解的知识" class="headerlink" title="需要了解的知识"></a>需要了解的知识</h2><h3 id="markdown语法"><a href="#markdown语法" class="headerlink" title="markdown语法"></a>markdown语法</h3><ul>
+<li>参见<a href="https://www.runoob.com/markdown/md-tutorial.html" target="_blank" rel="noopener">菜鸟教程</a>  </li>
+</ul>
+<h3 id="文章Front-matter介绍-markdown开头的部分"><a href="#文章Front-matter介绍-markdown开头的部分" class="headerlink" title="文章Front-matter介绍(markdown开头的部分)"></a>文章Front-matter介绍(markdown开头的部分)</h3><table>
 <thead>
 <tr>
 <th align="center">配置选项</th>
@@ -567,18 +571,16 @@
 <td align="center">文章转载规则， 可以是 cc_by, cc_by_nd, cc_by_sa, cc_by_nc, cc_by_nc_nd, cc_by_nc_sa, cc0, noreprint 或 pay 中的一个</td>
 </tr>
 </tbody></table>
-</li>
-</ul>
 <h4 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h4><ul>
 <li>如果 img 属性不填写的话，文章特色图会根据文章标题的 hashcode 的值取余，然后选取主题中对应的特色图片，从而达到让所有文章都的特色图各有特色。</li>
 <li>date 的值尽量保证每篇文章是唯一的，因为本主题中 Gitalk 和 Gitment 识别 id 是通过 date 的值来作为唯一标识的。</li>
 <li>如果要对文章设置阅读验证密码的功能，不仅要在 Front-matter 中设置采用了 SHA256 加密的 password 的值，还需要在主题的 _config.yml 中激活了配置。有些在线的 SHA256 加密的地址，可供你使用：开源中国在线工具、chahuo、站长工具。</li>
-<li>您可以在文章md文件的 front-matter 中指定 reprintPolicy 来给单个文章配置转载规则<h4 id="最简示例"><a href="#最简示例" class="headerlink" title="最简示例"></a>最简示例</h4><pre><code>  ---
-  title: typora-vue-theme主题介绍
-  date: 2018-09-07 09:25:00
-  ---</code></pre></li>
+<li>您可以在文章md文件的 front-matter 中指定 reprintPolicy 来给单个文章配置转载规则  </li>
 </ul>
-<h4 id="最全示例"><a href="#最全示例" class="headerlink" title="最全示例"></a>最全示例</h4><pre><code>---
+<h4 id="最简示例"><a href="#最简示例" class="headerlink" title="最简示例"></a>最简示例</h4><pre><code>    ---
+    title: typora-vue-theme主题介绍
+    date: 2018-09-07 09:25:00
+    ---</code></pre><h4 id="最全示例"><a href="#最全示例" class="headerlink" title="最全示例"></a>最全示例</h4><pre><code>---
 title: typora-vue-theme主题介绍
 date: 2018-09-07 09:25:00
 author: 赵奇
